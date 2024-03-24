@@ -4,7 +4,7 @@ services:
     image: edcb-wine
     container_name: EDCB-Wine
     build:
-      context: .
+      context: ./EDCB-Wine
     # OS 起動時にコンテナを自動起動する
     restart: always
     # ネットワークをホスト側と共有する
