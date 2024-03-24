@@ -26,4 +26,8 @@ EDCB-Wine/Xfce/.wine64/
 EDCB-Wine/Xfce/.ICEauthority
 EDCB-Wine/Xfce/core
 EDCB-Wine/wine-mount.sh
+
+Amatsukaze/cron/queue/*
+EDCB/EpgTimer_Bon_RecEnd.bat
+
 !.gitkeep
