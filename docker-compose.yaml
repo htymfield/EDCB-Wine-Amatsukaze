@@ -25,3 +25,17 @@ services:
       - type: bind
         source: './Amatsukaze/cron/queue/'
         target: '/Amatsukaze/cron/queue/'
+  
+  amatsukaze:
+    image: amatsukaze
+    container_name: Amatsukaze
+    build:
+      context: ./Amatsukaze
+    restart: always
+    volumes:
+      - type: bind
+        source: './Amatsukaze/'
+        target: '/Amatsukaze/'
+    # 複数コマンドを使うときは-cで文字列として渡さないといけないらしい
+    command: >
+      /bin/sh -c "cat /Amatsukaze/cron/entry.txt >> /var/spool/cron/crontabs/root && /usr/sbin/crond -f -L /Amatsukaze/cron/crond.log"
