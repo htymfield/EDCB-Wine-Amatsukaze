@@ -17,7 +17,7 @@ services:
     # 別途 HDD を /mnt/ 以下に適切な権限でマウントしておく必要がある (トラブル回避のため 777 (drwxrwxrwx) に設定することを推奨)
     volumes:
       - type: bind
-        source: './EDCB/'
+        source: './EDCB-Wine/EDCB/'
         target: '/EDCB/'
       - type: bind
         source: '/mnt/'
