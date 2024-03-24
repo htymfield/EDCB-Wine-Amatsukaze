@@ -4,6 +4,6 @@
 
 # RecEndから直接mono AmatsukazeAddTask.exeするのがうまくいかない。
 # ファイル名のみ渡してCRONに実行してもらう。
-# 親含め、/Amatsukaze/cron/queueのパーミッションに注意
-echo "$FileName$.ts" &> "/Amatsukaze/cron/queue/$FileName$.ts.dat"
+# 書き込みするのにはパーミッションが必要なので注意
+echo "piyo" > "/Amatsukaze/cron/queue/$FileName$.ts"
 
