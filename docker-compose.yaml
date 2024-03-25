@@ -38,4 +38,4 @@ services:
         target: '/Amatsukaze/'
     # 複数コマンドを使うときは-cで文字列として渡さないといけないらしい
     command: >
-      /bin/sh -c "cat /Amatsukaze/cron/entry.txt >> /var/spool/cron/crontabs/root && /usr/sbin/crond -f -L /Amatsukaze/cron/crond.log"
+      /bin/sh -c "crontab /Amatsukaze/cron/entry.txt && cron -f"
