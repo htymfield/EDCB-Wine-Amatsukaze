@@ -4,7 +4,7 @@ services:
     image: edcb-wine
     container_name: EDCB-Wine
     build:
-      context: .
+      context: ./EDCB-Wine
     # OS 起動時にコンテナを自動起動する
     restart: always
     # ネットワークをホスト側と共有する
@@ -22,3 +22,20 @@ services:
       - type: bind
         source: '/mnt/'
         target: '/mnt/'
+      - type: bind
+        source: './Amatsukaze/cron/queue/'
+        target: '/Amatsukaze/cron/queue/'
+  
+  amatsukaze:
+    image: amatsukaze
+    container_name: Amatsukaze
+    build:
+      context: ./Amatsukaze
+    restart: always
+    volumes:
+      - type: bind
+        source: './Amatsukaze/'
+        target: '/Amatsukaze/'
+    # 複数コマンドを使うときは-cで文字列として渡さないといけないらしい
+    command: >
+      /bin/sh -c "crontab /Amatsukaze/cron/entry.txt && cron -f"
